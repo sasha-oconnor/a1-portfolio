@@ -61,16 +61,16 @@ The site is built for its real audience, recruiters hiring new-grad software eng
 All four pages pass the W3C HTML checker and css/style.css passes the W3C CSS validator with no errors or warnings. AChecker (WCAG 2.0 AA) shows zero known and zero likely problems. It first flagged check 245 on experience.html (a table with multiple header rows/columns), which I fixed with id and headers attributes.
 
 AChecker's "potential problems" need human review. I reviewed each one, and none is a real problem:
-- Images (3, 8, 11, 14, 16, 178, 251): the diagram alt text is long on purpose because the diagrams carry information. No image relies on color alone.
-- Links (19): every link names its destination; there is no "click here".
-- Headings (42, 43, 44): real section headings, in order.
-- Page structure (28, 54, 184, 248, 262, 276): skip links, descriptive titles, real lists, and the same nav on every page. A site map is not needed for four pages.
-- Language (110, 270, 271): all English, set with lang="en".
-- Scripts (86, 87, 89): no color-only meaning, nothing flashes, and every control is a keyboard-accessible button.
-- Table (111, 137, 230, 231, 242): a data table with caption, thead/tbody, scope, id, and headers. summary is obsolete in HTML5.
-- Form (55, 96, 189, 211, 218, 246, 265, 267-269, 272): visible labels, "(optional)" marked, logical tab order, and browser validation messages. The form only opens an email draft.
-- Long quotations (131): there are none.
-- Text by position (250): no text refers to things only by position, shape, or color.
+- Images: the diagram alt text is long on purpose because the diagrams carry information. No image relies on color alone.
+- Links: every link names its destination; there is no "click here".
+- Headings: real section headings, in order.
+- Page structure: skip links, descriptive titles, real lists, and the same nav on every page. A site map is not needed for four pages.
+- Language: all English, set with lang="en".
+- Scripts: no color-only meaning, nothing flashes, and every control is a keyboard-accessible button.
+- Table: a data table with caption, thead/tbody, scope, id, and headers. summary is obsolete in HTML5.
+- Form: visible labels, "(optional)" marked, logical tab order, and browser validation messages. The form only opens an email draft.
+- Long quotations: there are none.
+- Text by position: no text refers to things only by position, shape, or color.
 
 4. How long, in hours, did it take you to complete this assignment?
 
