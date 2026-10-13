@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 250" width="640" height="250" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif">
+  <title>Five-stage MIPS pipeline with forwarding and a hazard unit</title>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#14171c"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c8102e"/>
+    </marker>
+    <marker id="arrow-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a525d"/>
+    </marker>
+    <pattern id="poly" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="7" height="7" fill="#fbe9ec"/>
+      <rect width="1.5" height="7" fill="#c8102e"/>
+    </pattern>
+  </defs>
+
+  <!-- Hazard unit: stalls IF/ID and inserts a bubble into ID/EX -->
+  <rect x="176" y="4" width="124" height="28" fill="#ffffff" stroke="#4a525d" stroke-dasharray="4 3"/>
+  <text x="238" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#14171c">Hazard unit</text>
+  <path d="M176 18 H121 V44" fill="none" stroke="#4a525d" stroke-dasharray="4 3" marker-end="url(#arrow-soft)"/>
+  <text x="128" y="14" font-size="11" fill="#4a525d">stall</text>
+  <path d="M245 32 V44" fill="none" stroke="#4a525d" stroke-dasharray="4 3" marker-end="url(#arrow-soft)"/>
+
+  <!-- Pipeline registers between the stages -->
+  <g fill="url(#poly)" stroke="#c8102e">
+    <rect x="116" y="48" width="10" height="108"/>
+    <rect x="240" y="48" width="10" height="108"/>
+    <rect x="364" y="48" width="10" height="108"/>
+    <rect x="488" y="48" width="10" height="108"/>
+  </g>
+  <g font-size="11" fill="#4a525d" text-anchor="middle">
+    <text x="121" y="174">IF/ID</text>
+    <text x="245" y="174">ID/EX</text>
+    <text x="369" y="174">EX/MEM</text>
+    <text x="493" y="174">MEM/WB</text>
+  </g>
+
+  <!-- The five stages -->
+  <g fill="#ffffff" stroke="#14171c" stroke-width="1.5">
+    <rect x="16" y="70" width="86" height="64"/>
+    <rect x="140" y="70" width="86" height="64"/>
+    <rect x="264" y="70" width="86" height="64"/>
+    <rect x="388" y="70" width="86" height="64"/>
+    <rect x="512" y="70" width="86" height="64"/>
+  </g>
+  <g text-anchor="middle" fill="#14171c">
+    <text x="59" y="99" font-size="16" font-weight="800">IF</text>
+    <text x="183" y="99" font-size="16" font-weight="800">ID</text>
+    <text x="307" y="99" font-size="16" font-weight="800">EX</text>
+    <text x="431" y="99" font-size="16" font-weight="800">MEM</text>
+    <text x="555" y="99" font-size="16" font-weight="800">WB</text>
+  </g>
+  <g text-anchor="middle" fill="#4a525d" font-size="11">
+    <text x="59" y="118">Fetch</text>
+    <text x="183" y="118">Decode</text>
+    <text x="307" y="118">Execute</text>
+    <text x="431" y="118">Memory</text>
+    <text x="555" y="118">Write-back</text>
+  </g>
+
+  <!-- Data moves left to right through the registers -->
+  <g stroke="#14171c" stroke-width="1.5" fill="none" marker-end="url(#arrow-ink)">
+    <path d="M102 102 H114"/>
+    <path d="M126 102 H138"/>
+    <path d="M226 102 H238"/>
+    <path d="M250 102 H262"/>
+    <path d="M350 102 H362"/>
+    <path d="M374 102 H386"/>
+    <path d="M474 102 H486"/>
+    <path d="M498 102 H510"/>
+  </g>
+
+  <!-- Forwarding paths from MEM and WB back into EX -->
+  <g stroke="#c8102e" stroke-width="2" fill="none" marker-end="url(#arrow-red)">
+    <path d="M431 134 V194 H296 V137"/>
+    <path d="M555 134 V210 H318 V137"/>
+  </g>
+  <text x="600" y="236" text-anchor="end" font-size="12" font-weight="700" fill="#c8102e">Forwarding paths</text>
+</svg>

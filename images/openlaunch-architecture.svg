@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif">
+  <title>OpenLaunch architecture</title>
+  <defs>
+    <marker id="ol-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#14171c"/>
+    </marker>
+    <pattern id="metal1" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="7" height="7" fill="#e8eefc"/>
+      <rect width="1.5" height="7" fill="#1d4ed8"/>
+    </pattern>
+  </defs>
+
+  <!-- Browser -->
+  <rect x="12" y="20" width="140" height="150" fill="#ffffff" stroke="#14171c" stroke-width="1.5"/>
+  <rect x="12" y="20" width="140" height="14" fill="url(#metal1)" stroke="#1d4ed8"/>
+  <text x="82" y="58" text-anchor="middle" font-size="14" font-weight="800" fill="#14171c">Browser</text>
+  <g font-size="11.5" fill="#4a525d" text-anchor="middle">
+    <text x="82" y="82">Swipe interface</text>
+    <text x="82" y="100">WebGL graphics</text>
+    <text x="82" y="118">Optimistic UI for</text>
+    <text x="82" y="134">messages</text>
+  </g>
+
+  <!-- Next.js server -->
+  <rect x="188" y="20" width="120" height="150" fill="#ffffff" stroke="#14171c" stroke-width="1.5"/>
+  <rect x="188" y="20" width="120" height="14" fill="url(#metal1)" stroke="#1d4ed8"/>
+  <text x="248" y="58" text-anchor="middle" font-size="14" font-weight="800" fill="#14171c">Next.js</text>
+  <g font-size="11.5" fill="#4a525d" text-anchor="middle">
+    <text x="248" y="82">Server Actions</text>
+    <text x="248" y="100">Matching</text>
+    <text x="248" y="116">algorithm</text>
+  </g>
+
+  <!-- MongoDB -->
+  <path d="M342 36 C342 25 468 25 468 36 V154 C468 165 342 165 342 154 Z" fill="#ffffff" stroke="#14171c" stroke-width="1.5"/>
+  <path d="M342 36 C342 47 468 47 468 36" fill="none" stroke="#14171c" stroke-width="1.5"/>
+  <text x="405" y="74" text-anchor="middle" font-size="14" font-weight="800" fill="#14171c">MongoDB</text>
+  <g font-size="11.5" fill="#4a525d" text-anchor="middle">
+    <text x="405" y="98">Founder profiles</text>
+    <text x="405" y="116">by tech stack</text>
+    <text x="405" y="132">and project needs</text>
+  </g>
+
+  <!-- Data flow -->
+  <g stroke="#14171c" stroke-width="1.5" fill="none" marker-end="url(#ol-arrow)" marker-start="url(#ol-arrow)">
+    <path d="M154 95 H186"/>
+    <path d="M310 95 H340"/>
+  </g>
+
+  <!-- Google sign-in -->
+  <rect x="12" y="206" width="140" height="44" fill="#ffffff" stroke="#4a525d" stroke-dasharray="4 3"/>
+  <text x="82" y="233" text-anchor="middle" font-size="12.5" font-weight="700" fill="#14171c">Google sign-in</text>
+  <path d="M82 204 V172" stroke="#4a525d" stroke-dasharray="4 3" fill="none" marker-end="url(#ol-arrow)"/>
+
+</svg>

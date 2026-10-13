@@ -2,23 +2,348 @@
 <html lang="en">
 
 <!--
-WRITTEN BY: Your name here
-EMAIL: Your email here
+WRITTEN BY: Sasha O'Connor
+EMAIL: aleksano@uci.edu
 -->
 
 <head>
   <meta charset="utf-8">
-  <meta name="author" content="Your name here">
-  <meta name="description" content="description of your page">
-   <!-- you would link to an external stylesheet here! -->
-   <!-- you would also link to Bootstrap here! -->
-  <title>title here</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Sasha O'Connor">
+  <meta name="description" content="Sasha O'Connor is a Computer Science and Engineering student at UC Irvine who builds across the whole stack, from CMOS gates and a pipelined CPU to Next.js apps and AI agents.">
+  <title>Sasha O'Connor | From transistors to AI agents</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <!-- Bootstrap 5.3.3 from the jsDelivr CDN. The integrity hash makes the
+       browser refuse the file if it was changed on the server. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Archivo from Google Fonts (variable width and weight). The fallbacks
+       are listed in css/style.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;display=swap">
+  <!-- My styles load last so they override Bootstrap -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <p>
-    <a href="http://validator.w3.org/check?uri=referer">
-       W3C validator
-    </a>
-  </p>
+  <!--
+  DESIGN NOTES
+  Idea: Sasha's range from transistor to AI agent, drawn as one chip layer stack, instead of the usual dark developer hero with gradients and badge grids.
+  Look: light plot paper with a dot grid, ink text, thin ruled cells, and a ruler under the header. The layer colors from chip layout tools are the only colors (red hardware, green systems, blue software, violet AI), used as hatched fills, plus via squares. Archivo with wide caps. Square corners everywhere except the round photo.
+  Goal: a recruiter sees the range and the current paid work in one screen, then opens Projects (filtered by layer) or Contact.
+  First screen: photo and name in wide caps on the left with the one-line pitch and two actions; the five-layer stack on the right; the Right now list follows.
+  -->
+  <a class="skip-link visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <!-- Site header: Bootstrap navbar that collapses behind a menu button below the md breakpoint -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-md" aria-label="Main">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <svg class="brand-via" viewBox="0 0 20 20" aria-hidden="true"><rect x="1.5" y="1.5" width="17" height="17" fill="#ffffff" stroke="#14171c" stroke-width="2"/><path d="M1.5 1.5 18.5 18.5 M18.5 1.5 1.5 18.5" stroke="#c8102e" stroke-width="2"/></svg>
+          Sasha O’Connor
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="site-nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- Hero: who I am on the left, the layer stack on the right (stacked on phones) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-id">
+              <img class="headshot rounded-circle" src="images/headshot.jpg" width="347" height="347" alt="Portrait of Sasha O'Connor">
+              <p class="hero-id-text"><strong>Computer Science and Engineering</strong> UC Irvine, graduating March 2027</p>
+            </div>
+            <h1 id="hero-title" class="display-name">Sasha O’Connor</h1>
+            <p class="hero-lede">I build across the whole stack, from transistors to AI agents.</p>
+            <p class="hero-meta">Right now I’m co-founding Opus Technologies, building AI agents at Right Click, making client dashboards at Mindful Metrics, and finishing my degree. I’m looking for new-grad software engineering roles.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="projects.html">See my projects
+                <svg class="bi" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+              </a>
+              <a class="btn btn-outline-primary" href="contact.html">Get in touch</a>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <!-- The stack is an ordered list from the top layer down. Each layer
+                 links to the work behind it. The hatched fills are decoration. -->
+            <figure class="stack">
+              <ol class="stack-layers">
+                <li class="stack-layer">
+                  <a class="stack-link" href="experience.html#right-click">
+                    <span class="stack-fill hatch-ai" aria-hidden="true"></span>
+                    <span class="stack-text">
+                      <span class="stack-name stack-name-ai">Agents</span>
+                      <span class="stack-detail">AI agents and Claude skills at Right Click</span>
+                      <svg class="stack-arrow" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+                    </span>
+                  </a>
+                </li>
+                <li class="stack-layer">
+                  <a class="stack-link" href="projects.html#layer-software">
+                    <span class="stack-fill hatch-sw" aria-hidden="true"></span>
+                    <span class="stack-text">
+                      <span class="stack-name stack-name-sw">Applications</span>
+                      <span class="stack-detail">Next.js apps for startups and small businesses</span>
+                      <svg class="stack-arrow" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+                    </span>
+                  </a>
+                </li>
+                <li class="stack-layer">
+                  <a class="stack-link" href="projects.html#layer-systems">
+                    <span class="stack-fill hatch-sys" aria-hidden="true"></span>
+                    <span class="stack-text">
+                      <span class="stack-name stack-name-sys">Systems</span>
+                      <span class="stack-detail">An AWS migration and a robotic arm</span>
+                      <svg class="stack-arrow" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+                    </span>
+                  </a>
+                </li>
+                <li class="stack-layer">
+                  <a class="stack-link" href="projects.html#mips">
+                    <span class="stack-fill hatch-hw" aria-hidden="true"></span>
+                    <span class="stack-text">
+                      <span class="stack-name stack-name-hw">Logic</span>
+                      <span class="stack-detail">A five-stage MIPS pipeline on an FPGA</span>
+                      <svg class="stack-arrow" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+                    </span>
+                  </a>
+                </li>
+                <li class="stack-layer">
+                  <a class="stack-link" href="projects.html#nand">
+                    <span class="stack-fill hatch-hw hatch-hw-fine" aria-hidden="true"></span>
+                    <span class="stack-text">
+                      <span class="stack-name stack-name-hw">Transistors</span>
+                      <span class="stack-detail">A CMOS NAND gate sized in Cadence Virtuoso</span>
+                      <svg class="stack-arrow" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+                    </span>
+                  </a>
+                </li>
+              </ol>
+              <figcaption class="stack-caption">My stack, from AI agents at the top down to transistors. Each layer links to the work behind it.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I am working on at the moment -->
+    <section class="section" aria-labelledby="now-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="now-title">Right now</h2>
+          <p>Three jobs and a senior design project, all running at the same time.</p>
+        </div>
+        <ul class="now-list">
+          <li class="now-row">
+            <a class="now-org" href="experience.html#opus">Opus Technologies</a>
+            <span class="now-role">Co-founder and software engineer</span>
+            <span class="now-since">Since summer 2026</span>
+            <span class="layer-tags">
+              <span class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</span>
+              <span class="layer-tag"><span class="swatch hatch-sys" aria-hidden="true"></span>Systems</span>
+              <span class="layer-tag"><span class="swatch hatch-ai" aria-hidden="true"></span>AI</span>
+            </span>
+          </li>
+          <li class="now-row">
+            <a class="now-org" href="experience.html#right-click">Right Click</a>
+            <span class="now-role">Full stack developer</span>
+            <span class="now-since">Since May 2026</span>
+            <span class="layer-tags">
+              <span class="layer-tag"><span class="swatch hatch-ai" aria-hidden="true"></span>AI</span>
+              <span class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</span>
+            </span>
+          </li>
+          <li class="now-row">
+            <a class="now-org" href="experience.html#mindful-metrics">Mindful Metrics</a>
+            <span class="now-role">Junior software engineer</span>
+            <span class="now-since">Since January 2025</span>
+            <span class="layer-tags">
+              <span class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</span>
+            </span>
+          </li>
+          <li class="now-row">
+            <a class="now-org" href="projects.html#third-arm">EECS 159A senior design</a>
+            <span class="now-role">Robotic third arm, team of four</span>
+            <span class="now-since">In progress</span>
+            <span class="layer-tags">
+              <span class="layer-tag"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware</span>
+              <span class="layer-tag"><span class="swatch hatch-sys" aria-hidden="true"></span>Systems</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Three projects; the full list is on projects.html -->
+    <section class="section" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="featured-title">Selected projects</h2>
+          <p>One from each end of the stack, plus the arm my team is building now.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <article class="cell">
+              <div class="cell-strip" aria-hidden="true"><span class="hatch-hw"></span></div>
+              <div class="cell-body">
+                <h3 class="cell-title">MIPS pipelined processor</h3>
+                <p class="cell-meta">
+                  <span class="cell-when">Fall 2025</span>
+                  <span class="layer-tag"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware</span>
+                </p>
+                <p class="cell-tools"><strong>Built with</strong> Verilog, AMD Vivado, FPGA</p>
+                <p>A five-stage pipelined MIPS processor with a hazard unit that forwards operands and stalls when it has to, running on a real FPGA board.</p>
+                <a class="cell-more" href="projects.html#mips">More about the processor
+                  <svg class="bi" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+                </a>
+              </div>
+              <figure class="cell-figure">
+                <div class="diagram-scroller">
+                  <img class="diagram-wide" src="images/mips-pipeline.svg" width="640" height="250" alt="Diagram of the five pipeline stages, fetch, decode, execute, memory, and write-back, separated by pipeline registers. Forwarding paths run from the memory and write-back stages back into execute, and a hazard unit can stall the pipeline.">
+                </div>
+                <p class="diagram-hint d-md-none">Swipe sideways to see the whole diagram.</p>
+                <figcaption>The five stages, with forwarding paths back into execute.</figcaption>
+              </figure>
+            </article>
+          </div>
+
+          <div class="col-lg-5">
+            <article class="cell">
+              <div class="cell-strip" aria-hidden="true"><span class="hatch-sw"></span></div>
+              <div class="cell-body">
+                <h3 class="cell-title">OpenLaunch</h3>
+                <p class="cell-meta">
+                  <span class="cell-when">February 2026 to present</span>
+                  <span class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</span>
+                </p>
+                <p class="cell-tools"><strong>Built with</strong> Next.js, React, Tailwind, MongoDB, WebGL</p>
+                <p>A matchmaking app for startup founders. It has a swipe interface, WebGL graphics, Google sign-in, a matching algorithm that builds each founder’s feed, and real-time messaging.</p>
+                <a class="cell-more" href="projects.html#openlaunch">More about OpenLaunch
+                  <svg class="bi" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+                </a>
+              </div>
+              <figure class="cell-figure">
+                <div class="diagram-scroller">
+                  <img class="diagram-wide" src="images/openlaunch-architecture.svg" width="480" height="270" alt="Architecture diagram: the browser runs the swipe interface, WebGL graphics, and optimistic UI for messages, and signs in with Google. It talks to Next.js Server Actions and the matching algorithm, which query founder profiles in MongoDB by tech stack and project needs.">
+                </div>
+                <p class="diagram-hint d-md-none">Swipe sideways to see the whole diagram.</p>
+                <figcaption>How the pieces of OpenLaunch connect.</figcaption>
+              </figure>
+            </article>
+          </div>
+
+          <div class="col-12">
+            <article class="cell">
+              <div class="cell-strip" aria-hidden="true"><span class="hatch-hw"></span><span class="hatch-sys"></span></div>
+              <div class="cell-body">
+                <h3 class="cell-title">Robotic third arm</h3>
+                <p class="cell-meta">
+                  <span class="cell-when">EECS 159A senior design, in progress</span>
+                  <span class="layer-tag"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware</span>
+                  <span class="layer-tag"><span class="swatch hatch-sys" aria-hidden="true"></span>Systems</span>
+                </p>
+                <p>My four-person team is building a mostly 3D-printed robotic arm that mounts on a backpack and has its own camera. We plan to add three ways to control it, in this order.</p>
+                <ol class="phases">
+                  <li>Joystick control</li>
+                  <li>Mirroring the wearer’s arm motion</li>
+                  <li>Voice commands</li>
+                </ol>
+                <a class="cell-more" href="projects.html#third-arm">More about the arm
+                  <svg class="bi" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About me -->
+    <section class="section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <h2 id="about-title">About me</h2>
+            <p>My name is Aleksander, but everyone calls me Sasha, which is the Russian nickname for it.</p>
+            <dl class="facts">
+              <div>
+                <dt>Languages</dt>
+                <dd>English, and I’m fluent in Russian, meaning I can also read and write it</dd>
+              </div>
+              <div>
+                <dt>Coding since</dt>
+                <dd>Eighth grade</dd>
+              </div>
+              <div>
+                <dt>Off the clock</dt>
+                <dd>Guitar and chess, both since I was about ten, and skateboarding</dd>
+              </div>
+              <div>
+                <dt>Based in</dt>
+                <dd>Irvine, California</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="col-lg-7">
+            <h3>How I work with AI</h3>
+            <p>Most of my work right now is building AI agents and automations, both at Right Click and at Opus Technologies, the company I co-founded. I use AI tools every day, but I review everything they write.</p>
+            <p>The reason for this is that AI still makes mistakes. What separates a good developer from a mediocre one is being able to catch those mistakes and fix them, instead of treating the AI as a source of truth.</p>
+            <p class="pullquote">AI is a tool, not a god.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer: contact links and the layer legend used across the site -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <p class="footer-name">Sasha O’Connor</p>
+          <p class="footer-note">Computer Science and Engineering, UC Irvine</p>
+          <ul class="footer-links">
+            <li><a href="mailto:aleksano@uci.edu">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/sasha-o-connor">LinkedIn</a></li>
+            <li><a href="https://github.com/sasha-oconnor">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <figure class="legend">
+            <figcaption>Layer legend</figcaption>
+            <ul class="layer-tags">
+              <li class="layer-tag"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware</li>
+              <li class="layer-tag"><span class="swatch hatch-sys" aria-hidden="true"></span>Systems</li>
+              <li class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</li>
+              <li class="layer-tag"><span class="swatch hatch-ai" aria-hidden="true"></span>AI</li>
+            </ul>
+          </figure>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Sasha O’Connor. Built with HTML, CSS, and Bootstrap 5.3.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap's JavaScript runs the collapsing navbar -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
