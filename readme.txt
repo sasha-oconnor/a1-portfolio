@@ -24,53 +24,52 @@ This portfolio is also my case for the bonus point (see the end of question 2).
 
 2. What (a) basic features, (b) CSS features, and (c) advanced features did you include in your portfolio?
 
-Four pages: index.html, projects.html, experience.html (an on-page resume), and contact.html, all with real content from my resume. The design is based on chip layout software like Cadence Virtuoso: a dot-grid background, outlined boxes, and four layer colors that each stand for a type of work (red hardware, green systems, blue software, violet AI), so a recruiter sees my range from logic gates to AI agents on the first screen.
+My portfolio has four pages: a home page, a projects page, an experience page that works as my resume, and a contact page. All of the content comes from my real resume. The design is based on the software engineers use to lay out computer chips, like Cadence Virtuoso. Each of the four colors stands for a type of work I do (red for hardware, green for systems, blue for software, and violet for AI), so a recruiter can see the range of my work on the first screen.
 
 (a) Basic features
-- Images with descriptive alt text: a headshot and three hand-drawn SVG diagrams (MIPS pipeline, CMOS NAND gate, OpenLaunch architecture).
-- One h1 per page, with headings in order and no skipped levels.
-- External links: LinkedIn, GitHub, Opus Technologies, and mailto.
-- The same nav bar on all four pages, with aria-current="page" on the current one.
-- Semantic tags: header, nav, main, section, article, aside, figure/figcaption, footer, and dl.
-- Icons: inline Bootstrap Icons, plus a hand-drawn via icon used as the logo and favicon.
+- Images with alt text that describes them: a headshot and three SVG diagrams (a MIPS pipeline, a CMOS NAND gate, and the OpenLaunch architecture).
+- One main heading per page, with the rest of the headings in order and no skipped levels.
+- Links to my LinkedIn, GitHub, and Opus Technologies, plus an email link.
+- The same nav bar on every page, and it marks which page is currently open.
+- Semantic HTML tags like header, nav, main, section, article, aside, figure, and footer, so the structure of each page is clear to screen readers.
+- Icons from Bootstrap Icons, plus a custom logo icon that is also the favicon.
 
 (b) CSS features
-- Consistent padding and margins, with more space above headings than below.
-- A custom palette stored as CSS variables; all text passes WCAG AA (4.5:1).
-- Bootstrap grid, rounded-circle, table, and display classes. style.css restyles Bootstrap through its own CSS variables instead of overriding rules one by one.
-- The Archivo Google Font, using its variable width for wide capital labels.
-- Advanced selectors from lecture 3: adjacent sibling, child, attribute, :hover, :focus-visible, and pseudo-elements.
+- Consistent spacing, with more space above headings than below them.
+- A custom color palette saved as CSS variables. All text meets the WCAG AA contrast standard, meaning it is dark enough against its background to read easily.
+- Bootstrap's grid, table, and display classes. Instead of overriding Bootstrap's rules one by one, style.css changes Bootstrap's own variables.
+- The Archivo font from Google Fonts.
+- Advanced selectors from lecture 3, including adjacent sibling, child, attribute, :hover, :focus-visible, and pseudo-elements.
 
 (c) Advanced features
-- Projects page layer filter (filter and forEach from lecture 5), with aria-pressed buttons, match counts, an aria-live status line, and deep links like projects.html#layer-software. Without JavaScript, every project is shown.
-- An accessible skills table with a caption, thead/tbody, row and column headers, and headers attributes on every cell.
-- A more complex layout: collapsing navbar, sticky Projects sidebar on large screens, and a CSS Grid timeline that shows overlapping jobs.
-- A contact form with labels, required fields, type="email", and autocomplete. JavaScript turns it into a pre-filled email; without JavaScript, the mailto action still works.
-- A print stylesheet for the Experience page ("Print or save as PDF" button) that hides the nav and footer and prints link addresses.
-- A layer fill-in animation on the home page, turned off for prefers-reduced-motion.
-- A "Copy email address" button using the Clipboard API.
+- A filter on the Projects page that shows one type of project at a time, written with filter and forEach from lecture 5. It works with a keyboard and a screen reader, and a link like projects.html#layer-software opens the page already filtered. Without JavaScript, every project still shows.
+- An accessible skills table on the Experience page, meaning every cell is linked to its row and column headers so a screen reader reads it correctly.
+- A more complex layout, including a nav bar that collapses on phones, a Projects sidebar that stays in place while scrolling on large screens, and a timeline that shows jobs that overlap.
+- A contact form with labels, required fields, and email format checking. JavaScript turns the message into a pre-filled email, and the form still works without JavaScript.
+- A print version of the Experience page, so the "Print or save as PDF" button gives a clean resume without the nav bar or footer.
+- An animation on the home page that turns off for anyone who has reduced motion turned on in their device settings.
+- A button that copies my email address.
 
 Responsive design
-Mobile-first CSS with min-width queries at Bootstrap's breakpoints, checked from 320px to 1440px with no sideways scrolling. On small screens the nav collapses, the home layer stack moves below the intro, the Projects sidebar moves above the projects, wide diagrams scroll inside their own box, timeline labels move above their tracks, and the skills table becomes stacked blocks below 576px.
+I wrote the CSS for phones first and then added changes for bigger screens at Bootstrap's breakpoints. I checked every page from 320px to 1440px wide, and nothing scrolls sideways. On phones, the nav bar collapses into a menu, sections that sit side by side stack on top of each other, wide diagrams scroll inside their own box, and the skills table turns into stacked blocks.
 
 Bonus point
-The site is built for its real audience, recruiters hiring new-grad software engineers. The design comes from the hardware side of my degree instead of a template, and the layer colors mean the same thing on every page. It also goes past the checkers with focus styles, a skip link, reduced motion support, and a print version.
+I built the site for its real audience, which is recruiters hiring new-grad software engineers. The design comes from the hardware side of my degree instead of a template, and each color means the same thing on every page. I also added things the checkers do not test for, like visible outlines for keyboard users, a link to skip past the nav bar, the reduced-motion setting, and the print version.
 
 3. Did you ignore any of the warnings or errors presented by the accessibility checker? If so, why does this not seem like an accessibility concern? If it's useful, you can consolidate your thoughts on multiple warnings/errors if the rationale is similar.
 
-All four pages pass the W3C HTML checker and css/style.css passes the W3C CSS validator with no errors or warnings. AChecker (WCAG 2.0 AA) shows zero known and zero likely problems. It first flagged check 245 on experience.html (a table with multiple header rows/columns), which I fixed with id and headers attributes.
+All four pages pass the W3C HTML checker, and style.css passes the W3C CSS validator with no errors or warnings. AChecker shows zero known problems and zero likely problems. At first, it flagged the skills table on experience.html because the table has headers on both its rows and columns. I fixed this by linking each cell to its headers.
 
-AChecker's "potential problems" need human review. I reviewed each one, and none is a real problem:
-- Images: the diagram alt text is long on purpose because the diagrams carry information. No image relies on color alone.
-- Links: every link names its destination; there is no "click here".
-- Headings: real section headings, in order.
-- Page structure: skip links, descriptive titles, real lists, and the same nav on every page. A site map is not needed for four pages.
-- Language: all English, set with lang="en".
-- Scripts: no color-only meaning, nothing flashes, and every control is a keyboard-accessible button.
-- Table: a data table with caption, thead/tbody, scope, id, and headers. summary is obsolete in HTML5.
-- Form: visible labels, "(optional)" marked, logical tab order, and browser validation messages. The form only opens an email draft.
-- Long quotations: there are none.
-- Text by position: no text refers to things only by position, shape, or color.
+AChecker also lists "potential problems," which are things it cannot check on its own and asks a person to review. I went through each one, and none of them is a real problem:
+- Images: the diagram alt text is long on purpose, because the diagrams contain information that someone who cannot see them still needs. No image relies on color alone.
+- Links: every link says where it goes, and none of them say "click here."
+- Headings: they are real section headings, and they go in order.
+- Page structure: every page has a skip link, a clear title, and the same nav bar. A site map is not needed for a four-page site.
+- Language: every page is set to English.
+- Scripts: nothing flashes, and every button works with a keyboard.
+- Table: it has a caption and labeled headers. AChecker asks for a summary attribute, but that attribute is no longer part of HTML5.
+- Form: every field has a visible label, the optional field is marked, and the browser shows a message when a required field is empty.
+- Long quotations and text that only makes sense by position, shape, or color: the site has none.
 
 4. How long, in hours, did it take you to complete this assignment?
 
@@ -78,7 +77,7 @@ About five hours.
 
 5. What online resources did you consult when completing this assignment? (list specific URLs, describe queries to Generative AI, or use of AI-based code completion)
 
-Generative AI: I used Claude Code (Anthropic) in VS Code throughout this assignment. I gave it the assignment rubric and asked it to answer some of my questions about how to attack the assignment. I gave it my resume, so that I could plan how I wanted to structure the site. I used it to help plan the theme of the portfolio. I made the main decisions about the audience, using Bootstrap, which personal details to include, and the visual design. Claude generated SVG diagrams from those choices, helped me find and fix what the validators flagged, which I reviewed. Claude also helped me structure my style.css page to make it neater, and helped me with some of the naming conventions used.
+Generative AI: I used Claude Code (Anthropic) in VS Code throughout this assignment. I gave it the assignment rubric and asked it to answer some of my questions about how to attack the assignment. I gave it my resume, so that I could plan how I wanted to structure the site. I used it to help plan the theme of the portfolio. I made the main decisions about the audience, using Bootstrap, which personal details to include, and the visual design. Claude generated SVG diagrams from those choices, helped me find and fix what the validators flagged, which I reviewed. Claude also helped me structure my style.css page to make it neater, and helped me with some of the naming conventions used. I also used Claude to help revise code and streamline the reuse of similar components and themes throughout the repo.
 
 Other resources:
 - The IN4MTX 133 lecture slides (lectures 2 through 5) on Canvas
@@ -97,6 +96,6 @@ I did not consult any classmates or other individuals.
 
 7. Is there anything special we need to know in order to run your code?
 
-Open index.html in Chrome; no server or install is needed. An internet connection is needed to load Bootstrap 5.3.3 and Archivo.
+Open index.html in Chrome. No server or install is needed, but it does need an internet connection to load Bootstrap and the Archivo font.
 
-All pages share css/style.css, so the valid-css-*.jpg screenshots all show that one file. Since the site is not hosted, HTML and CSS were checked by file upload and accessibility by pasting each page's HTML into AChecker.
+All four pages use the same css/style.css file, so the CSS validation screenshots all show that one file. Because the site is not hosted online, I checked the HTML and CSS by uploading the files, and I checked accessibility by pasting each page's HTML into AChecker.
