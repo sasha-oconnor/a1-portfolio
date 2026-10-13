@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+
+<!--
+WRITTEN BY: Sasha O'Connor
+EMAIL: aleksano@uci.edu
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Sasha O'Connor">
+  <meta name="description" content="Projects by Sasha O'Connor: a robotic third arm, a pipelined MIPS processor on an FPGA, a CMOS NAND gate, Next.js apps, and client work at Opus Technologies.">
+  <title>Projects | Sasha O'Connor</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <!-- Bootstrap 5.3.3 from the jsDelivr CDN, with an integrity hash -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Archivo from Google Fonts; fallbacks are in css/style.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;display=swap">
+  <!-- My styles load last so they override Bootstrap -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="skip-link visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <!-- Site header: Bootstrap navbar that collapses behind a menu button below the md breakpoint -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-md" aria-label="Main">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <svg class="brand-via" viewBox="0 0 20 20" aria-hidden="true"><rect x="1.5" y="1.5" width="17" height="17" fill="#ffffff" stroke="#14171c" stroke-width="2"/><path d="M1.5 1.5 18.5 18.5 M18.5 1.5 1.5 18.5" stroke="#c8102e" stroke-width="2"/></svg>
+          Sasha O’Connor
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="site-nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <header class="page-head">
+        <h1>Projects</h1>
+        <p class="lede">Class, team, and client work, sorted by the layer of the stack it lives on.</p>
+      </header>
+
+      <div class="row g-4 g-lg-5 pb-5">
+
+        <!-- Sidebar: the layer filter and a jump list. On phones it sits above the projects. -->
+        <div class="col-lg-3">
+          <div class="sidebar">
+            <!-- Hidden until js/main.js turns the buttons on, so nothing here is broken without JavaScript -->
+            <aside class="layer-palette" aria-labelledby="palette-title" hidden>
+              <h2 class="palette-title" id="palette-title">Layers</h2>
+              <p class="palette-hint">Pick a layer to see only that work.</p>
+              <div class="palette-buttons">
+                <button class="layer-btn" type="button" data-layer="all" aria-pressed="true"><span class="swatch swatch-all" aria-hidden="true"></span>All layers <span class="count" data-count="all"></span></button>
+                <button class="layer-btn" type="button" data-layer="hardware" aria-pressed="false"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware <span class="count" data-count="hardware"></span></button>
+                <button class="layer-btn" type="button" data-layer="systems" aria-pressed="false"><span class="swatch hatch-sys" aria-hidden="true"></span>Systems <span class="count" data-count="systems"></span></button>
+                <button class="layer-btn" type="button" data-layer="software" aria-pressed="false"><span class="swatch hatch-sw" aria-hidden="true"></span>Software <span class="count" data-count="software"></span></button>
+                <button class="layer-btn" type="button" data-layer="ai" aria-pressed="false"><span class="swatch hatch-ai" aria-hidden="true"></span>AI <span class="count" data-count="ai"></span></button>
+              </div>
+              <p class="palette-status" aria-live="polite"></p>
+            </aside>
+
+            <!-- Jump list, only on large screens where the sidebar has room -->
+            <nav class="jump-list d-none d-lg-block" aria-label="Projects on this page">
+              <ul>
+                <li><a href="#third-arm">Robotic third arm</a></li>
+                <li><a href="#mips">MIPS pipelined processor</a></li>
+                <li><a href="#nand">NAND gate optimization</a></li>
+                <li><a href="#openlaunch">OpenLaunch</a></li>
+                <li><a href="#brainrotify">Brainrotify.me</a></li>
+                <li><a href="#opus-work">Client work at Opus</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="col-lg-9">
+
+          <!-- Group 1: class and team projects -->
+          <section class="cell-group" aria-labelledby="group-school">
+            <div class="group-head">
+              <h2 id="group-school">Class and team projects</h2>
+              <p>From a CMOS gate up to a web app for startup founders.</p>
+            </div>
+            <div class="row g-4">
+
+              <div class="col-12 project" id="third-arm" data-layers="hardware systems">
+                <article class="cell">
+                  <div class="cell-strip" aria-hidden="true"><span class="hatch-hw"></span><span class="hatch-sys"></span></div>
+                  <div class="cell-body">
+                    <h3 class="cell-title">Robotic third arm (EECS 159A senior design)</h3>
+                    <p class="cell-meta">
+                      <span class="cell-when">In progress</span>
+                      <span class="layer-tag"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware</span>
+                      <span class="layer-tag"><span class="swatch hatch-sys" aria-hidden="true"></span>Systems</span>
+                    </p>
+                    <p>My four-person senior design team is building a mostly 3D-printed robotic arm that mounts on a backpack and has an onboard camera. We plan to add three ways to control it, in this order.</p>
+                    <ol class="phases">
+                      <li>Joystick control</li>
+                      <li>Mirroring the wearer’s arm motion</li>
+                      <li>Voice commands</li>
+                    </ol>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 project" id="mips" data-layers="hardware">
+                <article class="cell">
+                  <div class="cell-strip" aria-hidden="true"><span class="hatch-hw"></span></div>
+                  <div class="cell-body">
+                    <h3 class="cell-title">MIPS pipelined processor</h3>
+                    <p class="cell-meta">
+                      <span class="cell-when">Fall 2025</span>
+                      <span class="layer-tag"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware</span>
+                    </p>
+                    <p class="cell-tools"><strong>Built with</strong> Verilog, AMD Vivado, FPGA</p>
+                    <ul class="cell-points">
+                      <li>Designed a five-stage pipelined MIPS processor in Verilog, with fetch, decode, execute, memory, and write-back stages.</li>
+                      <li>Pipelining lets several instructions run at once, so it gets more instructions through than a single-cycle design.</li>
+                      <li>Built a hazard unit that handles data and control hazards by forwarding operands and stalling the pipeline when needed.</li>
+                      <li>Synthesized the design onto an FPGA board with AMD Vivado and confirmed it works on real hardware.</li>
+                    </ul>
+                  </div>
+                  <figure class="cell-figure">
+                    <div class="diagram-scroller">
+                      <img class="diagram-wide" src="images/mips-pipeline.svg" width="640" height="250" alt="Diagram of the five pipeline stages, fetch, decode, execute, memory, and write-back, separated by pipeline registers. Forwarding paths run from the memory and write-back stages back into execute, and a hazard unit can stall the pipeline.">
+                    </div>
+                    <p class="diagram-hint d-md-none">Swipe sideways to see the whole diagram.</p>
+                    <figcaption>The forwarding paths feed results back into execute, so later instructions do not have to wait for them.</figcaption>
+                  </figure>
+                </article>
+              </div>
+
+              <div class="col-md-6 project" id="nand" data-layers="hardware">
+                <article class="cell">
+                  <div class="cell-strip" aria-hidden="true"><span class="hatch-hw"></span></div>
+                  <div class="cell-body">
+                    <h3 class="cell-title">NAND gate optimization</h3>
+                    <p class="cell-meta">
+                      <span class="cell-when">November to December 2025</span>
+                      <span class="layer-tag"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware</span>
+                    </p>
+                    <p class="cell-tools"><strong>Built with</strong> Cadence Virtuoso, CMOS, analog simulation</p>
+                    <ul class="cell-points">
+                      <li>Ran DC sweep simulations in Cadence Virtuoso to choose the transistor width-to-length (W/L) ratios.</li>
+                      <li>Centered the switching threshold at VDD/2, meaning the gate flips halfway between 0 and VDD, which gives the best noise margins.</li>
+                      <li>Compared the simulated behavior of the CMOS gates against my hand calculations.</li>
+                    </ul>
+                  </div>
+                  <figure class="cell-figure">
+                    <img src="images/nand-gate.svg" width="360" height="300" alt="Schematic of a CMOS NAND gate. Two PMOS transistors in parallel connect VDD to the output Y, and two NMOS transistors in series connect Y to ground. Inputs A and B each drive one PMOS and one NMOS transistor.">
+                    <figcaption>The gate I sized: PMOS pull-up in parallel, NMOS pull-down in series.</figcaption>
+                  </figure>
+                </article>
+              </div>
+
+              <div class="col-md-6 project" id="openlaunch" data-layers="software">
+                <article class="cell">
+                  <div class="cell-strip" aria-hidden="true"><span class="hatch-sw"></span></div>
+                  <div class="cell-body">
+                    <h3 class="cell-title">OpenLaunch</h3>
+                    <p class="cell-meta">
+                      <span class="cell-when">February 2026 to present</span>
+                      <span class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</span>
+                    </p>
+                    <p class="cell-tools"><strong>Built with</strong> Next.js, React, Tailwind, MongoDB, WebGL</p>
+                    <ul class="cell-points">
+                      <li>A full-stack matchmaking app for startup founders, with a swipe interface, WebGL graphics, and Google sign-in.</li>
+                      <li>Wrote a matching algorithm that builds each founder’s discovery feed by querying profiles in MongoDB by tech stack and project needs.</li>
+                      <li>Built real-time messaging with Next.js Server Actions and optimistic UI, meaning a sent message shows up right away instead of waiting on the server.</li>
+                    </ul>
+                  </div>
+                  <figure class="cell-figure">
+                    <div class="diagram-scroller">
+                      <img class="diagram-wide" src="images/openlaunch-architecture.svg" width="480" height="270" alt="Architecture diagram: the browser runs the swipe interface, WebGL graphics, and optimistic UI for messages, and signs in with Google. It talks to Next.js Server Actions and the matching algorithm, which query founder profiles in MongoDB by tech stack and project needs.">
+                    </div>
+                    <p class="diagram-hint d-md-none">Swipe sideways to see the whole diagram.</p>
+                    <figcaption>How the pieces of OpenLaunch connect.</figcaption>
+                  </figure>
+                </article>
+              </div>
+
+              <div class="col-12 project" id="brainrotify" data-layers="software ai">
+                <article class="cell">
+                  <div class="cell-strip" aria-hidden="true"><span class="hatch-sw"></span><span class="hatch-ai"></span></div>
+                  <div class="cell-body">
+                    <h3 class="cell-title">Brainrotify.me</h3>
+                    <p class="cell-meta">
+                      <span class="cell-when">Winter 2024</span>
+                      <span class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</span>
+                      <span class="layer-tag"><span class="swatch hatch-ai" aria-hidden="true"></span>AI</span>
+                    </p>
+                    <p class="cell-tools"><strong>Built with</strong> Python, Reflex, MongoDB, OpenAI API</p>
+                    <ul class="cell-points">
+                      <li>Co-developed a full-stack web app that uses generative AI to make multimedia content with synchronized video from customizable templates.</li>
+                      <li>Used MongoDB to store user accounts and each user’s customization settings.</li>
+                      <li>Built the interface in Reflex, a Python web framework, including sign-in and real-time data updates.</li>
+                    </ul>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Group 2: client work through my company -->
+          <section class="cell-group" id="opus-work" aria-labelledby="group-opus">
+            <div class="group-head">
+              <h2 id="group-opus">Client work at Opus Technologies</h2>
+              <p>Opus is the two-engineer software company I co-founded in summer 2026. We build workflow automation, custom CRMs, dashboards, and AI voice agents for small businesses. See <a href="https://opus-technologies.ai">opus-technologies.ai</a>.</p>
+            </div>
+            <div class="row g-4">
+
+              <div class="col-md-6 col-xl-4 project" id="healthcare" data-layers="systems">
+                <article class="cell">
+                  <div class="cell-strip" aria-hidden="true"><span class="hatch-sys"></span></div>
+                  <div class="cell-body">
+                    <h3 class="cell-title">Healthcare Platform</h3>
+                    <p class="cell-meta">
+                      <span class="cell-when">Cloud migration</span>
+                      <span class="layer-tag"><span class="swatch hatch-sys" aria-hidden="true"></span>Systems</span>
+                    </p>
+                    <p class="cell-tools"><strong>Built with</strong> AWS, Supabase</p>
+                    <p class="mb-0">I led the platform’s move from Supabase to AWS, covering the database, front-end hosting, the DNS cutover, and testing after the switch.</p>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-md-6 col-xl-4 project" id="plumbing" data-layers="software ai">
+                <article class="cell">
+                  <div class="cell-strip" aria-hidden="true"><span class="hatch-sw"></span><span class="hatch-ai"></span></div>
+                  <div class="cell-body">
+                    <h3 class="cell-title">Norwalk-La Mirada Plumbing</h3>
+                    <p class="cell-meta">
+                      <span class="cell-when">Office dashboard</span>
+                      <span class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</span>
+                      <span class="layer-tag"><span class="swatch hatch-ai" aria-hidden="true"></span>AI</span>
+                    </p>
+                    <p class="mb-0">I built a dashboard for the office and used AI to automate re-typing their handwritten timesheets, work orders, and invoices.</p>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-md-6 col-xl-4 project" id="bingsu" data-layers="software">
+                <article class="cell">
+                  <div class="cell-strip" aria-hidden="true"><span class="hatch-sw"></span></div>
+                  <div class="cell-body">
+                    <h3 class="cell-title">TaraeQueen USA Bingsu</h3>
+                    <p class="cell-meta">
+                      <span class="cell-when">Storefront website</span>
+                      <span class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</span>
+                    </p>
+                    <p class="mb-0">I built the shop’s new storefront website.</p>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer: contact links and the layer legend used across the site -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <p class="footer-name">Sasha O’Connor</p>
+          <p class="footer-note">Computer Science and Engineering, UC Irvine</p>
+          <ul class="footer-links">
+            <li><a href="mailto:aleksano@uci.edu">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/sasha-o-connor">LinkedIn</a></li>
+            <li><a href="https://github.com/sasha-oconnor">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <figure class="legend">
+            <figcaption>Layer legend</figcaption>
+            <ul class="layer-tags">
+              <li class="layer-tag"><span class="swatch hatch-hw" aria-hidden="true"></span>Hardware</li>
+              <li class="layer-tag"><span class="swatch hatch-sys" aria-hidden="true"></span>Systems</li>
+              <li class="layer-tag"><span class="swatch hatch-sw" aria-hidden="true"></span>Software</li>
+              <li class="layer-tag"><span class="swatch hatch-ai" aria-hidden="true"></span>AI</li>
+            </ul>
+          </figure>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Sasha O’Connor. Built with HTML, CSS, and Bootstrap 5.3.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap's JavaScript runs the collapsing navbar; main.js runs the layer filter -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

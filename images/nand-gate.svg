@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" width="360" height="300" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif">
+  <title>CMOS NAND gate schematic</title>
+
+  <!-- Supply rail -->
+  <path d="M70 36 H280" stroke="#14171c" stroke-width="2"/>
+  <text x="288" y="40" font-size="13" font-weight="700" fill="#14171c">VDD</text>
+
+  <g stroke="#14171c" stroke-width="1.6" fill="none">
+    <!-- PMOS P1 (input A): source to VDD, drain to Y -->
+    <path d="M110 60 V100"/>
+    <path d="M110 66 H126 V36"/>
+    <path d="M110 94 H126 V124"/>
+    <path d="M102 62 V98"/>
+    <circle cx="98" cy="80" r="4"/>
+    <path d="M60 80 H94"/>
+
+    <!-- PMOS P2 (input B), in parallel with P1 -->
+    <path d="M230 60 V100"/>
+    <path d="M230 66 H246 V36"/>
+    <path d="M230 94 H246 V124"/>
+    <path d="M222 62 V98"/>
+    <circle cx="218" cy="80" r="4"/>
+    <path d="M180 80 H214"/>
+
+    <!-- NMOS N1 (input A): drain to Y -->
+    <path d="M170 144 V184"/>
+    <path d="M170 150 H186 V124"/>
+    <path d="M170 178 H186 V198"/>
+    <path d="M162 146 V182"/>
+    <path d="M120 164 H162"/>
+
+    <!-- NMOS N2 (input B), in series below N1, source to ground -->
+    <path d="M170 212 V252"/>
+    <path d="M170 218 H186 V198"/>
+    <path d="M170 246 H186 V272"/>
+    <path d="M162 214 V250"/>
+    <path d="M120 232 H162"/>
+  </g>
+
+  <!-- Output node Y joins the two PMOS drains and the top NMOS -->
+  <path d="M126 124 H300" stroke="#14171c" stroke-width="2.5"/>
+  <g fill="#14171c">
+    <circle cx="126" cy="124" r="3.5"/>
+    <circle cx="186" cy="124" r="3.5"/>
+    <circle cx="246" cy="124" r="3.5"/>
+  </g>
+  <text x="308" y="129" font-size="15" font-weight="800" fill="#14171c">Y</text>
+
+  <!-- Ground -->
+  <g stroke="#14171c" stroke-width="2">
+    <path d="M174 272 H198"/>
+    <path d="M178 278 H194"/>
+    <path d="M183 284 H189"/>
+  </g>
+  <text x="206" y="283" font-size="13" font-weight="700" fill="#14171c">GND</text>
+
+  <!-- Input labels -->
+  <g font-size="14" font-weight="800" fill="#c8102e" text-anchor="end">
+    <text x="54" y="85">A</text>
+    <text x="174" y="85">B</text>
+    <text x="114" y="169">A</text>
+    <text x="114" y="237">B</text>
+  </g>
+
+  <!-- Notes -->
+  <g font-size="11" fill="#4a525d">
+    <text x="262" y="72">PMOS in parallel</text>
+    <text x="262" y="86">(pull-up)</text>
+    <text x="204" y="214">NMOS in series</text>
+    <text x="204" y="228">(pull-down)</text>
+  </g>
+</svg>
