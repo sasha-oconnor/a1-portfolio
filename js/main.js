@@ -110,5 +110,57 @@ function setUpPrintButtons() {
   });
 }
 
+/* ---------- Contact page: copy the email address ---------- */
+
+function setUpCopyButtons() {
+  document.querySelectorAll('[data-copy]').forEach((button) => {
+    const status = button.parentElement.querySelector('.copy-status');
+    const text = button.dataset.copy;
+    button.hidden = false;
+
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        status.textContent = 'Email address copied.';
+      } catch (error) {
+        // Clipboard access can be blocked, so tell the visitor what to copy instead
+        status.textContent = `Copying is blocked in this browser. The address is ${text}.`;
+      }
+    });
+  });
+}
+
+/* ---------- Contact page: turn the form into a pre-filled email ---------- */
+
+function setUpContactForm() {
+  const form = document.querySelector('#contact-form');
+  if (!form) {
+    return;
+  }
+  const status = document.querySelector('#form-status');
+  // The address comes from the form's mailto: action, so it is only written once
+  const address = form.getAttribute('action').replace('mailto:', '');
+
+  // The submit event only fires after the browser's own checks pass
+  // (required fields filled in and a valid email address)
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = form.elements.name.value.trim();
+    const email = form.elements.email.value.trim();
+    const company = form.elements.company.value.trim();
+    const message = form.elements.message.value.trim();
+
+    const from = company ? `${name}, ${company}` : name;
+    const subject = `Message from your portfolio: ${from}`;
+    const body = `${message}\n\n${from}\n${email}`;
+
+    window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    status.textContent = `Your email app should open with the message filled in. If it does not, email me directly at ${address}.`;
+  });
+}
+
 setUpLayerFilter();
 setUpPrintButtons();
+setUpCopyButtons();
+setUpContactForm();
